@@ -10,6 +10,9 @@ public class CreatorTaxicab {
     private ValidatorTaxicab validator;
 
     public CreatorTaxicab(ValidatorTaxicab validator) {
+        if (validator == null) {
+
+        }
         this.validator = validator;
     }
 

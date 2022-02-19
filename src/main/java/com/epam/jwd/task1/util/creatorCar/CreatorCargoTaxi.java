@@ -8,6 +8,9 @@ public class CreatorCargoTaxi{
     private ValidatorCargoTaxi validator;
 
     public CreatorCargoTaxi(ValidatorCargoTaxi validator) {
+        if (validator == null) {
+            
+        }
         this.validator = validator;
     }
 

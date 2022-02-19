@@ -10,6 +10,9 @@ public class CreatorMinibus {
     private ValidatorMinibus validator;
 
     public CreatorMinibus(ValidatorMinibus validator) {
+        if (validator == null) {
+
+        }
         this.validator = validator;
     }
 
