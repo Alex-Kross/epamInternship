@@ -1,12 +1,10 @@
 package com.epam.jwd.task1.model.logic;
 
 import com.epam.jwd.task1.model.entity.Car;
-import com.epam.jwd.task1.model.logic.sercher.SearcherInRange;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-
 
 public class TaxiCompany {
     private double priceTaxiCompany = 0.0;
@@ -21,7 +19,10 @@ public class TaxiCompany {
         taxis.add(taxi);
     }
 
-    public void addListTaxi(ArrayList<Car> listTaxi){
+    public void addListTaxi(ArrayList<Car> listTaxi) throws Exception{
+        if (listTaxi == null) {
+            throw new Exception("Taxi list empty");
+        }
         taxis.addAll(listTaxi);
     }
 
@@ -35,20 +36,19 @@ public class TaxiCompany {
         }
     }
 
-//    public <T extends Number> List<Car> searchInRange(SearcherInRange searcherInRange, T start, T finish){
-//        return searcherInRange.search(taxis, start, finish);
-//    }
-
-    public void sortByComparator(Comparator comparator){
+    public void sortByComparator(Comparator comparator) throws Exception{
+        if (comparator == null) {
+            throw new Exception("Comparator is null");
+        }
         Collections.sort(taxis, comparator);
     }
 
     @Override
     public String toString() {
-        String str = "";
+        String str = "TaxiCompany:\n";
         for (Car car : taxis) {
             str += car.toString() + "\n";
         }
-        return "TaxiCompany:\n" + str;
+        return str;
     }
 }

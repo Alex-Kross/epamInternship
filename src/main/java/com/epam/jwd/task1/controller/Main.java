@@ -1,47 +1,76 @@
 package com.epam.jwd.task1.controller;
 
 import com.epam.jwd.task1.model.entity.Car;
-import com.epam.jwd.task1.model.entity.Minibus;
 import com.epam.jwd.task1.model.logic.TaxiCompany;
+import com.epam.jwd.task1.model.logic.comparator.CarFuelComparator;
+import com.epam.jwd.task1.model.logic.comparator.CarPriceComparator;
+import com.epam.jwd.task1.model.logic.sercher.SearcherMaxPayload;
+import com.epam.jwd.task1.model.logic.sercher.SearcherSeat;
 import com.epam.jwd.task1.util.CreatorListCar;
+import com.epam.jwd.task1.view.Printer;
 
 import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) throws Exception {
+        // create lists cars
         ArrayList minibuses = CreatorListCar.createListMinibus();
         ArrayList cargoTaxis = CreatorListCar.createListCargoTaxi();
         ArrayList taxicabs = CreatorListCar.createListTaxicab();
 
+        // create taxi company and add taxis in it
         TaxiCompany taxiCompany = new TaxiCompany();
-//
         taxiCompany.addListTaxi(minibuses);
         taxiCompany.addListTaxi(cargoTaxis);
         taxiCompany.addListTaxi(taxicabs);
-//
-//
-//        double allPrice = taxiCompany.calculatePriceAllCar();
-//
-//        ArrayList <Car> cars = new ArrayList<>();
-//
-////        searcherSeatInListCarsearcherInRange = new searcherSeatInListCar();
-////        cars = searcherInRange.searchForNumberSeat(cars,2,10);
-////        cars = searcherInRange.searchForMaxPayload(cars,30000,10000);
-////        taxiCompany.searchForMaxPayload();
-//        taxiCompany.searchInRange(new SearcherSeat(), 10,100);
-////        Searcher searcher = new Searcher();
-////        searcher.search(taxiCompany.getTaxis(), 12,100.2);
-//        System.out.println(taxiCompany);
-//        System.out.println();
-//        taxiCompany.sortByComparator(new FuelComparator());
-//
-        Minibus minibus1 = new Minibus(20432, 38.5,
-                18, 3942.23,  101.2);
-        Car car = new Car(20432, 38.5,
-                18, 3942.23);
-//        boolean b = minibus1.equals(car);
-//        Collections.sort(taxiCompany.getTaxis(),new FuelComparator());
-//        System.out.println(taxiCompany);
 
+        // show list taxi
+        Printer.PrintInConsole(taxiCompany);
+
+        // Calculate price all car in taxi company
+        taxiCompany.calculatePriceAllCar();
+        double allPrice = taxiCompany.getPriceTaxiCompany();
+
+        // Show price taxi company
+        Printer.PrintInConsole("Summary price for all taxis in taxi company: ");
+        Printer.PrintInConsole(allPrice);
+
+        // Sort list taxi by fuel consumption
+        taxiCompany.sortByComparator(new CarFuelComparator());
+
+        // Show first type of sort
+        Printer.PrintInConsole("Taxi company sort by fuel consumption");
+        Printer.PrintInConsole(taxiCompany);
+
+        // Sort list taxi by price
+        taxiCompany.sortByComparator(new CarPriceComparator());
+
+        // Show second type of sort
+        Printer.PrintInConsole("Taxi company sort by price");
+        Printer.PrintInConsole(taxiCompany);
+
+        // create 2 list car
+        ArrayList <Car> listCar1 = new ArrayList<>();
+        ArrayList <Car> listCar2 = new ArrayList<>();
+
+        // search list car by seats
+        SearcherSeat searcherSeat = new SearcherSeat();
+        int start1 = 2;
+        int finish1 = 10;
+        listCar1 = searcherSeat.search(taxiCompany.getTaxis(),start1,finish1);
+
+        // show taxi that was search by number seats
+        Printer.PrintInConsole("Search in taxi company by seats from %d to %d: ".formatted(start1,finish1));
+        Printer.PrintInConsole(listCar1);
+
+        // search list car by max payload
+        SearcherMaxPayload searcherMaxPayload = new SearcherMaxPayload();
+        int start2 = 10000;
+        int finish2 = 30000;
+        listCar2 = searcherMaxPayload.search(taxiCompany.getTaxis(),start2,finish2);
+
+        // show taxi that was search by max payload
+        Printer.PrintInConsole("Search in taxi company by max payload from %d to %d: ".formatted(start2,finish2));
+        Printer.PrintInConsole(listCar2);
     }
 }

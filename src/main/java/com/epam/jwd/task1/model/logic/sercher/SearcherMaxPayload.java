@@ -7,7 +7,11 @@ import java.util.ArrayList;
 
 public class SearcherMaxPayload extends SearcherInRange {
 
-    public <T extends Number> ArrayList<Car> search(ArrayList<Car> taxis, T start, T finish){
+    @Override
+    public <T extends Number> ArrayList<Car> search(ArrayList<Car> taxis, T start, T finish) throws Exception{
+        if (taxis == null) {
+            throw new Exception("list for search cars by max payload is null");
+        }
         ArrayList<Car> carArrayList = new ArrayList<>();
         double starting = start.doubleValue();
         double finishing = finish.doubleValue();

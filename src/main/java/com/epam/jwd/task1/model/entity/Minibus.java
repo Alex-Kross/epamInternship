@@ -12,17 +12,6 @@ public class Minibus extends Car{
         this.priceLicense = priceLicense;
     }
 
-    public double getPriceLicense() {
-        return priceLicense;
-    }
-
-    public void setPriceLicense(double priceLicense) {
-        double minPrice = 0;
-        if (priceLicense >= minPrice){
-            this.priceLicense = priceLicense;
-        }
-    }
-
     @Override
     public double getPrice() {
         return super.getPrice() + priceLicense;

@@ -1,4 +1,4 @@
-package com.epam.jwd.task1.validator;
+package com.epam.jwd.task1.util.validator;
 
 public class ValidatorMinibus {
 
@@ -9,9 +9,9 @@ public class ValidatorMinibus {
         validatePriceLicense(priceLicense);
     }
 
-    public   void validatePriceLicense(double priceLicense) throws Exception {
+    public void validatePriceLicense(double priceLicense) throws Exception {
         if (priceLicense < 0){
-            throw new Exception("Invalid price of license");
+            throw new Exception("Invalid price of license. Only it'll be more zero");
         }
     }
 }

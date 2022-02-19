@@ -17,22 +17,6 @@ public class Car{
         this.maxPayload = maxPayload;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public void setFuelConsumption(double fuelConsumption) {
-        this.fuelConsumption = fuelConsumption;
-    }
-
-    public void setNumberSeat(int numberSeat) {
-        this.numberSeat = numberSeat;
-    }
-
-    public void setMaxPayload(double maxPayload) {
-        this.maxPayload = maxPayload;
-    }
-
     public double getPrice() {
         return price;
     }

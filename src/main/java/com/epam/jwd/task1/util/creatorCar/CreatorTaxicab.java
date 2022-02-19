@@ -1,17 +1,15 @@
-package com.epam.jwd.task1.util;
+package com.epam.jwd.task1.util.creatorCar;
 
 
-import com.epam.jwd.task1.model.entity.Minibus;
 import com.epam.jwd.task1.model.entity.Taxicab;
-import com.epam.jwd.task1.validator.ValidatorMinibus;
-import com.epam.jwd.task1.validator.ValidatorTaxicab;
+import com.epam.jwd.task1.util.validator.ValidatorTaxicab;
 
 public class CreatorTaxicab {
     private ValidatorTaxicab validator;
 
-    public CreatorTaxicab(ValidatorTaxicab validator) {
+    public CreatorTaxicab(ValidatorTaxicab validator) throws Exception{
         if (validator == null) {
-
+            throw new Exception("Validator for taxicab is null");
         }
         this.validator = validator;
     }

@@ -3,33 +3,24 @@ package com.epam.jwd.task1.util;
 import com.epam.jwd.task1.model.entity.CargoTaxi;
 import com.epam.jwd.task1.model.entity.Minibus;
 import com.epam.jwd.task1.model.entity.Taxicab;
-import com.epam.jwd.task1.validator.Validator;
-import com.epam.jwd.task1.validator.ValidatorCargoTaxi;
-import com.epam.jwd.task1.validator.ValidatorMinibus;
-import com.epam.jwd.task1.validator.ValidatorTaxicab;
+import com.epam.jwd.task1.util.creatorCar.CreatorCargoTaxi;
+import com.epam.jwd.task1.util.creatorCar.CreatorMinibus;
+import com.epam.jwd.task1.util.creatorCar.CreatorTaxicab;
+import com.epam.jwd.task1.util.validator.ValidatorCargoTaxi;
+import com.epam.jwd.task1.util.validator.ValidatorMinibus;
+import com.epam.jwd.task1.util.validator.ValidatorTaxicab;
 
 import java.util.ArrayList;
 
 public class CreatorListCar {
-    public static ArrayList<Minibus> createListMinibus() {
+    public static ArrayList<Minibus> createListMinibus() throws Exception {
         ArrayList<Minibus> minibuses = new ArrayList<>();
         CreatorMinibus creatorCar = new CreatorMinibus(new ValidatorMinibus());
 
-        try {
-            minibuses.add(creatorCar.create(-20432, 38.5, 18, 3942.23,  101.2));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        try {
-            minibuses.add(creatorCar.create(25123, 42.7, 9, 2341.12,  253.2));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        try {
-            minibuses.add(creatorCar.create(30234, 35.7, 20, 3023.43,  210.3));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        minibuses.add(creatorCar.create(20432, 38.5, 18, 3942.23,  101.2));
+        minibuses.add(creatorCar.create(25123, 42.7, 9, 2341.12,  253.2));
+        minibuses.add(creatorCar.create(30234, 35.7, 20, 3023.43,  210.3));
+
         return minibuses;
     }
 
@@ -47,9 +38,11 @@ public class CreatorListCar {
     public static ArrayList<Taxicab> createListTaxicab() throws Exception {
         ArrayList<Taxicab> taxicabs = new ArrayList<>();
         CreatorTaxicab creatorCar = new CreatorTaxicab(new ValidatorTaxicab());
+
         taxicabs.add(creatorCar.create(12213, 61.8, 3, 1345.12,  225.5));
         taxicabs.add(creatorCar.create(6123, 43.1, 1, 1111.15,  333.3));
         taxicabs.add(creatorCar.create(9533, 51.2, 4, 1034.32,  199.9));
+
         return taxicabs;
     }
 }

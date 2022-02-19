@@ -12,17 +12,6 @@ public class Taxicab extends Car{
         this.priceTaxiMeter = priceTaxiMeter;
     }
 
-    public double getPriceTaxiMeter() {
-        return priceTaxiMeter;
-    }
-
-    public void setPriceTaxiMeter(double priceTaxiMeter) {
-        double minPrice = 0;
-        if (priceTaxiMeter >= minPrice) {
-            this.priceTaxiMeter = priceTaxiMeter;
-        }
-    }
-
     @Override
     public double getPrice() {
         return super.getPrice() + priceTaxiMeter;

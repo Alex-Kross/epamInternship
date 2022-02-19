@@ -1,4 +1,4 @@
-package com.epam.jwd.task1.validator;
+package com.epam.jwd.task1.util.validator;
 
 public class ValidatorTaxicab {
 
@@ -9,9 +9,9 @@ public class ValidatorTaxicab {
         validatePriceTaxiMeter(priceTaxiMeter);
     }
 
-    public   void validatePriceTaxiMeter(double priceTaxiMeter) throws Exception {
+    public void validatePriceTaxiMeter(double priceTaxiMeter) throws Exception {
         if (priceTaxiMeter < 0){
-            throw new Exception("Invalid price of taxi meter");
+            throw new Exception("Invalid price of taxi meter. Only it'll be more zero");
         }
     }
 }

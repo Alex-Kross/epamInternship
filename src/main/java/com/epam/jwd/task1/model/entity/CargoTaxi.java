@@ -13,18 +13,6 @@ public class CargoTaxi extends Car{
         this.percentFillingCarBody = percentFillingCarBody;
     }
 
-    public int getPercentFillingCarBody() {
-        return percentFillingCarBody;
-    }
-
-    public void setPercentFillingCarBody(int percentFillingCarBody) {
-        int minPercent = 0;
-        int maxPercent = 100;
-        if (percentFillingCarBody >= minPercent && maxPercent <= percentFillingCarBody) {
-            this.percentFillingCarBody = percentFillingCarBody;
-        }
-    }
-
     @Override
     public double getPrice() {
         return super.getPrice() + percentFillingCarBody * factor;

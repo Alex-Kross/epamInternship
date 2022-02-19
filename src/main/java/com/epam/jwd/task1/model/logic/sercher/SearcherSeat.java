@@ -7,7 +7,10 @@ import java.util.ArrayList;
 
 public class SearcherSeat extends SearcherInRange {
     @Override
-    public <T extends Number> ArrayList<Car> search(ArrayList<Car> taxis, T start, T finish) {
+    public <T extends Number> ArrayList<Car> search(ArrayList<Car> taxis, T start, T finish) throws Exception{
+        if (taxis == null) {
+            throw new Exception("list for search car by seats is null");
+        }
         ArrayList<Car> carArrayList = new ArrayList<>();
         int starting = start.intValue();
         int finishing = finish.intValue();

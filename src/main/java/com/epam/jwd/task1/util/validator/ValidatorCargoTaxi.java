@@ -1,4 +1,4 @@
-package com.epam.jwd.task1.validator;
+package com.epam.jwd.task1.util.validator;
 
 public class ValidatorCargoTaxi{
 
@@ -9,9 +9,9 @@ public class ValidatorCargoTaxi{
         validatePercent(percent);
     }
 
-    public   void validatePercent(int percent) throws Exception {
+    public void validatePercent(int percent) throws Exception {
         if (percent < 0 || percent > 100){
-            throw new Exception("Invalid percent");
+            throw new Exception("Invalid percent. Percent only be 0 to 100");
         }
     }
 }
