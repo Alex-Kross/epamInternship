@@ -2,10 +2,25 @@ package com.epam.jwd.task1.model.entity;
 
 import java.util.Objects;
 
-public class Car{
+/**
+ * Car this base abstract class for different types of taxis.
+ * It appears template for all types taxis in taxi company.
+ *
+ * @author Karpuk A.U.
+ * @version 1.1 20.2.2022
+ * */
+public abstract class Car{
+
+    /** Price of this car */
     protected double price;
+
+    /** Amount fuel consumption liter/km */
     protected double fuelConsumption;
+
+    /** Number all seats in car */
     protected int numberSeat;
+
+    /** Max payload for this car */
     protected double maxPayload;
 
     public Car(){}

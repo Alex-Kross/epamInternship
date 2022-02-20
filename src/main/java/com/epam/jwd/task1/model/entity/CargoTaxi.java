@@ -2,8 +2,25 @@ package com.epam.jwd.task1.model.entity;
 
 import java.util.Objects;
 
+/**
+ * This car is special type of taxi that extend class Car
+ * Cargo taxi contain parameter percent filling car body.
+ * It can be fill only to 100 %. Price this car
+ * calculates from price plus coefficient.
+ * Coefficient contains from percent filling and
+ * factor(max price for full a fill car body).
+ * Factor is constanta, that set up drivers or boss
+ * taxi company.
+ *
+ * @author Karpuk A.U.
+ * @version 1.1 20.2.2022
+ * */
 public class CargoTaxi extends Car{
+
+    /** It's price for a fill car body */
     private final static int factor = 300;
+
+    /** percent filling car body. Min - 0 %. Max - 100% */
     private int percentFillingCarBody;
 
     public CargoTaxi() {}
@@ -13,6 +30,12 @@ public class CargoTaxi extends Car{
         this.percentFillingCarBody = percentFillingCarBody;
     }
 
+    /**
+     * Consider factor and percent filling car
+     * for calculate general price for this car
+     *
+     * @return price general price for this car
+     */
     @Override
     public double getPrice() {
         return super.getPrice() + percentFillingCarBody * factor;

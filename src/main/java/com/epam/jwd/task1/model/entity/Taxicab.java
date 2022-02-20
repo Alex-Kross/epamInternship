@@ -2,7 +2,20 @@ package com.epam.jwd.task1.model.entity;
 
 import java.util.Objects;
 
+/**
+ * Taxicab is special type of taxi that extend class Car
+ * This car has a taxi meter that include in
+ * general price of all car.
+ *
+ * @author Karpuk A.U.
+ * @version 1.1 20.2.2022
+ */
 public class Taxicab extends Car{
+
+    /**
+     * It's price for taxi meter that
+     * use every taxicab
+     */
     private double priceTaxiMeter;
 
     public Taxicab() {}
@@ -12,6 +25,11 @@ public class Taxicab extends Car{
         this.priceTaxiMeter = priceTaxiMeter;
     }
 
+    /**
+     * Consider cost taxi meter and car together
+     *
+     * @return price general price of this car
+     */
     @Override
     public double getPrice() {
         return super.getPrice() + priceTaxiMeter;

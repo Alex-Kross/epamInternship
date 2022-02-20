@@ -12,7 +12,30 @@ import com.epam.jwd.task1.util.validator.ValidatorTaxicab;
 
 import java.util.ArrayList;
 
+/**
+ * Class create lists objects CargoTaxi, Taxicab, Minibus
+ * It consists of three methods for create and validate on
+ * correctly special type of taxi
+ *
+ * @author Karpuk A.U.
+ * @version 1.1 20.2.2022
+ * */
 public class CreatorListCar {
+
+    /**
+     * Create list minibuses
+     * Use class for initial and validate properties
+     * for minibuses. For validate need special
+     * validator for minibus.
+     *
+     * @return list correct minibuses
+     * @throws Exception occur if transfer in constructor
+     *                  creator minibus null. Or if method
+     *                  create inner creator minibus throw
+     *                  exception that say us that parameter
+     *                  of car invalid
+     * @see com.epam.jwd.task1.util.creatorCar.CreatorMinibus#create(double, double, int, double, double)
+     */
     public static ArrayList<Minibus> createListMinibus() throws Exception {
         ArrayList<Minibus> minibuses = new ArrayList<>();
         CreatorMinibus creatorCar = new CreatorMinibus(new ValidatorMinibus());
@@ -24,6 +47,20 @@ public class CreatorListCar {
         return minibuses;
     }
 
+    /**
+     * Create list cargo taxis
+     * Use class for initial and validate properties
+     * for cargo taxis. For validate need special
+     * validator for cargo taxi.
+     *
+     * @return list correct cargo taxis
+     * @throws Exception occur if transfer in constructor
+     *                  creator cargo taxi null. Or if method
+     *                  create inner creator cargo taxi throw
+     *                  exception that say us that parameter
+     *                  of car invalid
+     * @see com.epam.jwd.task1.util.creatorCar.CreatorCargoTaxi#create(double, double, int, double, int)
+     */
     public static ArrayList<CargoTaxi> createListCargoTaxi() throws Exception {
         ArrayList<CargoTaxi> cargoTaxis = new ArrayList<>();
         CreatorCargoTaxi creatorCar = new CreatorCargoTaxi(new ValidatorCargoTaxi());
@@ -35,6 +72,20 @@ public class CreatorListCar {
         return cargoTaxis;
     }
 
+    /**
+     * Create list taxicabs
+     * Use class for initial and validate properties
+     * for taxicabs. For validate need special
+     * validator for taxicab.
+     *
+     * @return list correct taxicabs
+     * @throws Exception occur if transfer in constructor
+     *                  creator taxicab null. Or if method
+     *                  create inner creator taxicab throw
+     *                  exception that say us that parameter
+     *                  of car invalid
+     * @see com.epam.jwd.task1.util.creatorCar.CreatorTaxicab#create(double, double, int, double, double)
+     */
     public static ArrayList<Taxicab> createListTaxicab() throws Exception {
         ArrayList<Taxicab> taxicabs = new ArrayList<>();
         CreatorTaxicab creatorCar = new CreatorTaxicab(new ValidatorTaxicab());

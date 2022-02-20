@@ -2,16 +2,33 @@ package com.epam.jwd.task1.model.entity;
 
 import java.util.Objects;
 
-public class Minibus extends Car{
+/**
+ * Minibus is special type of taxi, that extends class Car
+ * Here price calculates with include price for car and
+ * for license. License is document, that you need to buy
+ * for transport group people on certain way.
+ *
+ * @author Karpuk A.U.
+ * @version 1.1 20.2.2022
+ */
+public class Minibus extends Car {
+
+    /** It's price for licence */
     private double priceLicense;
 
-    public Minibus() {}
+    public Minibus() {
+    }
 
     public Minibus(double price, double fuelConsumption, int numberSeat, double maxPayload, double priceLicense) {
         super(price, fuelConsumption, numberSeat, maxPayload);
         this.priceLicense = priceLicense;
     }
 
+    /**
+     * Calculate all price from license and car
+     *
+     * @return price general price for this car
+     */
     @Override
     public double getPrice() {
         return super.getPrice() + priceLicense;

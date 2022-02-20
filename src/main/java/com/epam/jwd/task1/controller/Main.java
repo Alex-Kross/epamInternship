@@ -11,6 +11,13 @@ import com.epam.jwd.task1.view.Printer;
 
 import java.util.ArrayList;
 
+/**
+ * Point enter to program
+ * Build script execution program
+ *
+ * @author Karpuk A.U.
+ * @version 1.1 20.2.2022
+ * */
 public class Main {
     public static void main(String[] args) throws Exception {
         // create lists cars
