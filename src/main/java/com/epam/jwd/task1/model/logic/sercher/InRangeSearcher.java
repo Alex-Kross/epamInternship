@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author Karpuk A.U.
  * @version 1.1 20.2.2022
  * */
-public abstract class SearcherInRange {
+public abstract class InRangeSearcher {
 
     /**
      * Method searches cars for certain parameters

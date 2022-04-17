@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author Karpuk A.U.
  * @version 1.1 20.2.2022
  * */
-public class SearcherMaxPayload extends SearcherInRange {
+public class MaxPayloadSearcher extends InRangeSearcher {
 
     /**
      * Search cars by max payload in range

@@ -38,7 +38,7 @@ public class TaxiCompany {
      */
     public void addListTaxi(ArrayList<Car> listTaxi) throws Exception{
         if (listTaxi == null) {
-            throw new Exception("Taxi list empty");
+            throw new Exception("Taxi list is null");
         }
         taxis.addAll(listTaxi);
     }

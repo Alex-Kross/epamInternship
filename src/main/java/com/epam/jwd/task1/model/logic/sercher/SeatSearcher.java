@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author Karpuk A.U.
  * @version 1.1 20.2.2022
  * */
-public class SearcherSeat extends SearcherInRange {
+public class SeatSearcher extends InRangeSearcher {
 
     /**
      * Search cars by number seats in range

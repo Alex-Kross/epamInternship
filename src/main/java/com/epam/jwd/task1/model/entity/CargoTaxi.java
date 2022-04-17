@@ -18,7 +18,7 @@ import java.util.Objects;
 public class CargoTaxi extends Car{
 
     /** It's price for a fill car body */
-    private final static int factor = 300;
+    private final static int FACTOR = 300;
 
     /** percent filling car body. Min - 0 %. Max - 100% */
     private int percentFillingCarBody;
@@ -38,7 +38,7 @@ public class CargoTaxi extends Car{
      */
     @Override
     public double getPrice() {
-        return super.getPrice() + percentFillingCarBody * factor;
+        return super.getPrice() + percentFillingCarBody * FACTOR;
     }
 
     @Override

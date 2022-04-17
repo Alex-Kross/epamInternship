@@ -4,9 +4,9 @@ import com.epam.jwd.task1.model.entity.Car;
 import com.epam.jwd.task1.model.logic.TaxiCompany;
 import com.epam.jwd.task1.model.logic.comparator.CarFuelComparator;
 import com.epam.jwd.task1.model.logic.comparator.CarPriceComparator;
-import com.epam.jwd.task1.model.logic.sercher.SearcherMaxPayload;
-import com.epam.jwd.task1.model.logic.sercher.SearcherSeat;
-import com.epam.jwd.task1.util.CreatorListCar;
+import com.epam.jwd.task1.model.logic.sercher.MaxPayloadSearcher;
+import com.epam.jwd.task1.model.logic.sercher.SeatSearcher;
+import com.epam.jwd.task1.util.ListCarCreator;
 import com.epam.jwd.task1.view.Printer;
 
 import java.util.ArrayList;
@@ -21,9 +21,9 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) throws Exception {
         // create lists cars
-        ArrayList minibuses = CreatorListCar.createListMinibus();
-        ArrayList cargoTaxis = CreatorListCar.createListCargoTaxi();
-        ArrayList taxicabs = CreatorListCar.createListTaxicab();
+        ArrayList minibuses = ListCarCreator.createListMinibus();
+        ArrayList cargoTaxis = ListCarCreator.createListCargoTaxi();
+        ArrayList taxicabs = ListCarCreator.createListTaxicab();
 
         // create taxi company and add taxis in it
         TaxiCompany taxiCompany = new TaxiCompany();
@@ -61,7 +61,7 @@ public class Main {
         ArrayList <Car> listCar2 = new ArrayList<>();
 
         // search list car by seats
-        SearcherSeat searcherSeat = new SearcherSeat();
+        SeatSearcher searcherSeat = new SeatSearcher();
         int start1 = 2;
         int finish1 = 10;
         listCar1 = searcherSeat.search(taxiCompany.getTaxis(),start1,finish1);
@@ -71,7 +71,7 @@ public class Main {
         Printer.PrintInConsole(listCar1);
 
         // search list car by max payload
-        SearcherMaxPayload searcherMaxPayload = new SearcherMaxPayload();
+        MaxPayloadSearcher searcherMaxPayload = new MaxPayloadSearcher();
         int start2 = 10000;
         int finish2 = 30000;
         listCar2 = searcherMaxPayload.search(taxiCompany.getTaxis(),start2,finish2);

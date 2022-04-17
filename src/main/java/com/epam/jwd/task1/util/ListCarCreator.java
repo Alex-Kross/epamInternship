@@ -20,7 +20,7 @@ import java.util.ArrayList;
  * @author Karpuk A.U.
  * @version 1.1 20.2.2022
  * */
-public class CreatorListCar {
+public class ListCarCreator {
 
     /**
      * Create list minibuses
