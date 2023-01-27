@@ -3,6 +3,7 @@ package com.epam.jwd.task1.model.logic.sercher;
 import com.epam.jwd.task1.model.entity.Car;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 /**
  * Search cars by max payload.
@@ -25,17 +26,21 @@ public class MaxPayloadSearcher extends InRangeSearcher {
         }
 
         ArrayList<Car> carArrayList = new ArrayList<>();
-        double maxPayload;
+//        double maxPayload;
         double starting = start.doubleValue();
         double finishing = finish.doubleValue();
 
         if (finishing >= starting && starting >= 0) {
-            for (Car car : taxis) {
-                maxPayload= car.getMaxPayload();
-                if (maxPayload >= starting && maxPayload <= finishing) {
-                    carArrayList.add(car);
-                }
-            }
+            carArrayList.addAll(taxis.stream()
+                    .filter(x -> x.getMaxPayload() >= starting)
+                    .filter(x -> x.getMaxPayload() <= finishing)
+                    .collect(Collectors.toList()));
+//            for (Car car : taxis) {
+//                maxPayload= car.getMaxPayload();
+//                if (maxPayload >= starting && maxPayload <= finishing) {
+//                    carArrayList.add(car);
+//                }
+//            }
         }
         return carArrayList;
     }

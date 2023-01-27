@@ -36,12 +36,12 @@ public class Printer {
      *              in console
      */
     public static void PrintInConsole(List<Car> taxis) {
-        String str = "";
-
-        for (Car car : taxis) {
-            str += car.toString() + "\n";
-        }
-
-        System.out.println(str);
+        taxis.stream().map(x -> x.toString()).forEach(x -> System.out.println(x));
+//        String str = "";
+//        for (Car car : taxis) {
+//            str += car.toString() + "\n";
+//        }
+//
+//        System.out.println(str);
     }
 }

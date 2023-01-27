@@ -71,7 +71,6 @@ public class TaxiCompany {
     @Override
     public String toString() {
         String str = "TaxiCompany:\n";
-
         for (Car car : taxis) {
             str += car.toString() + "\n";
         }

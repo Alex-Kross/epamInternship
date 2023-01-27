@@ -3,6 +3,7 @@ package com.epam.jwd.task1.model.logic.sercher;
 import com.epam.jwd.task1.model.entity.Car;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 /**
  * Search cars by number seats.
@@ -25,17 +26,21 @@ public class SeatSearcher extends InRangeSearcher {
         }
 
         ArrayList<Car> carArrayList = new ArrayList<>();
-        int numberSeat;
+//        int numberSeat;
         int starting = start.intValue();
         int finishing = finish.intValue();
 
         if (finishing >= starting && starting >= 0) {
-            for (Car car : taxis) {
-                numberSeat = car.getNumberSeat();
-                if (numberSeat >= starting && numberSeat <= finishing) {
-                    carArrayList.add(car);
-                }
-            }
+            carArrayList.addAll(taxis.stream()
+                    .filter(x -> x.getNumberSeat() >= starting)
+                    .filter(x -> x.getNumberSeat() <= finishing)
+                    .collect(Collectors.toList()));
+//            for (Car car : taxis) {
+//                numberSeat = car.getNumberSeat();
+//                if (numberSeat >= starting && numberSeat <= finishing) {
+//                    carArrayList.add(car);
+//                }
+//            }
         }
         return carArrayList;
     }
